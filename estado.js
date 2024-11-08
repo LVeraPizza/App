@@ -9,13 +9,25 @@ window.onload = function () {
         (currentHour >= 19 && currentHour < 23)
     );
 
-    if (isOpen) {
+    // Verificar el estado guardado en localStorage
+    const savedStatus = localStorage.getItem("estadoPedido");
+
+    if (savedStatus === "abierto") {
         statusBar.textContent = "ABIERTO";
         statusBar.style.backgroundColor = "green";
-        localStorage.setItem("estadoPedido", "abierto");
-    } else {
+    } else if (savedStatus === "cerrado") {
         statusBar.textContent = "CERRADO";
         statusBar.style.backgroundColor = "red";
-        localStorage.setItem("estadoPedido", "cerrado");
+    } else {
+        // Si no hay estado guardado, calculamos el estado
+        if (isOpen) {
+            statusBar.textContent = "ABIERTO";
+            statusBar.style.backgroundColor = "green";
+            localStorage.setItem("estadoPedido", "abierto");
+        } else {
+            statusBar.textContent = "CERRADO";
+            statusBar.style.backgroundColor = "red";
+            localStorage.setItem("estadoPedido", "cerrado");
+        }
     }
 };
