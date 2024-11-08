@@ -6,28 +6,20 @@ window.onload = function () {
 
     const isOpen = (
         (currentDay === 5 || currentDay === 6 || currentDay === 0) &&
-        (currentHour >= 12 && currentHour < 23)
+        (currentHour >= 19 && currentHour < 23)
     );
 
-    // Verificar el estado guardado en sessionStorage
-    const savedStatus = sessionStorage.getItem("estadoPedido");
+    // Limpiar el valor previo de localStorage para forzar actualización
+    localStorage.removeItem("estadoPedido");
 
-    if (savedStatus === "abierto") {
+    // Ahora calculamos el estado y lo actualizamos
+    if (isOpen) {
         statusBar.textContent = "ABIERTO";
         statusBar.style.backgroundColor = "green";
-    } else if (savedStatus === "cerrado") {
+        localStorage.setItem("estadoPedido", "abierto");
+    } else {
         statusBar.textContent = "CERRADO";
         statusBar.style.backgroundColor = "red";
-    } else {
-        // Si no hay estado guardado, calculamos el estado
-        if (isOpen) {
-            statusBar.textContent = "ABIERTO";
-            statusBar.style.backgroundColor = "green";
-            sessionStorage.setItem("estadoPedido", "abierto");
-        } else {
-            statusBar.textContent = "CERRADO";
-            statusBar.style.backgroundColor = "red";
-            sessionStorage.setItem("estadoPedido", "cerrado");
-        }
+        localStorage.setItem("estadoPedido", "cerrado");
     }
 };
