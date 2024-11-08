@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Promociones</title>
+</head>
+
+<body>
+
+    <div class="product-card">
+        <img src="img/2_margheritas.png" alt="Producto" class="product-image">
+        <div class="product-info">
+            <h3 class="product-name">2 Margheritas</h3>
+            <div class="product-footer">
+                <span class="product-price">$12500</span>
+                <div class="quantity-controls">
+                    <button type="button" onclick="decreaseQuantity('2 Margheritas')">-</button>
+                    <input type="text" id="2 Margheritas" class="quantity" value="0" readonly>
+                    <button type="button" onclick="increaseQuantity('2 Margheritas')">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="img/1_rucula_y_jc_+_1_pepperoni.png" alt="Producto" class="product-image">
+        <div class="product-info">
+            <h3 class="product-name">1 Rucula y jC + 1 Pepperoni</h3>
+            <div class="product-footer">
+                <span class="product-price">$14000</span>
+                <div class="quantity-controls">
+                    <button type="button" onclick="decreaseQuantity('1 Rucula y jC + 1 Pepperoni')">-</button>
+                    <input type="text" id="1 Rucula y jC + 1 Pepperoni" class="quantity" value="0" readonly>
+                    <button type="button" onclick="increaseQuantity('1 Rucula y jC + 1 Pepperoni')">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="img/1_margherita_+_1_4_formaggi.png" alt="Producto" class="product-image">
+        <div class="product-info">
+            <h3 class="product-name">1 Margherita + 1 4 Formaggi</h3>
+            <div class="product-footer">
+                <span class="product-price">$13000</span>
+                <div class="quantity-controls">
+                    <button type="button" onclick="decreaseQuantity('1 Margherita + 1 4 Formaggi')">-</button>
+                    <input type="text" id="1 Margherita + 1 4 Formaggi" class="quantity" value="0" readonly>
+                    <button type="button" onclick="increaseQuantity('1 Margherita + 1 4 Formaggi')">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="scripts.js"></script>
+</body>
+
+<footer>
+    <a href="index.html">
+        <img src="img/casa.png" alt="Logo 1">
+    </a>
+    <div class="separator"></div>
+
+    <a href="contacto.html">
+        <img src="img/redes-sociales.png" alt="Logo 2">
+    </a>
+    <div class="separator"></div>
+
+    <a href="promociones.html">
+        <img src="img/promocion.png" alt="Logo 4">
+    </a>
+    <div class="separator"></div>
+
+    <a href="productos-ventas.html">
+        <img src="img/pizza.png" alt="Logo 3">
+    </a>
+    <div class="separator"></div>
+
+    <a href="carrito.html">
+        <div class="cart-icon">
+            <img src="img/carrito-de-compras.png" alt="Cart Icon">
+            <div id="cart-count">0</div>
+        </div>
+    </a>
+</footer>
+
+
+</html>
