@@ -6,7 +6,7 @@ window.onload = function () {
 
     const isOpen = (
         (currentDay === 5 || currentDay === 6 || currentDay === 0) &&
-        (currentHour >= 19 && currentHour < 23)
+        (currentHour >= 11 && currentHour < 23)
     );
 
     if (isOpen) {
