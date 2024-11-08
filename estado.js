@@ -6,11 +6,11 @@ window.onload = function () {
 
     const isOpen = (
         (currentDay === 5 || currentDay === 6 || currentDay === 0) &&
-        (currentHour >= 12 && currentHour < 23)
+        (currentHour >= 19 && currentHour < 23)
     );
 
-    // Verificar el estado guardado en localStorage
-    const savedStatus = localStorage.getItem("estadoPedido");
+    // Verificar el estado guardado en sessionStorage
+    const savedStatus = sessionStorage.getItem("estadoPedido");
 
     if (savedStatus === "abierto") {
         statusBar.textContent = "ABIERTO";
@@ -23,11 +23,11 @@ window.onload = function () {
         if (isOpen) {
             statusBar.textContent = "ABIERTO";
             statusBar.style.backgroundColor = "green";
-            localStorage.setItem("estadoPedido", "abierto");
+            sessionStorage.setItem("estadoPedido", "abierto");
         } else {
             statusBar.textContent = "CERRADO";
             statusBar.style.backgroundColor = "red";
-            localStorage.setItem("estadoPedido", "cerrado");
+            sessionStorage.setItem("estadoPedido", "cerrado");
         }
     }
 };
