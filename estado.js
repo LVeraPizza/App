@@ -9,17 +9,34 @@ window.onload = function () {
         (currentHour >= 19 && currentHour < 23)
     );
 
-    // Limpiar el valor previo de localStorage para forzar actualización
-    localStorage.removeItem("estadoPedido");
+    // Comprobar si el estado en localStorage está actualizado
+    const savedStatus = localStorage.getItem("estadoPedido");
 
-    // Ahora calculamos el estado y lo actualizamos
-    if (isOpen) {
-        statusBar.textContent = "ABIERTO";
-        statusBar.style.backgroundColor = "green";
-        localStorage.setItem("estadoPedido", "abierto");
+    if (!savedStatus) {
+        // Si no existe en localStorage, calculamos el estado
+        if (isOpen) {
+            statusBar.textContent = "ABIERTO";
+            statusBar.style.backgroundColor = "green";
+            localStorage.setItem("estadoPedido", "abierto");
+        } else {
+            statusBar.textContent = "CERRADO";
+            statusBar.style.backgroundColor = "red";
+            localStorage.setItem("estadoPedido", "cerrado");
+        }
     } else {
-        statusBar.textContent = "CERRADO";
-        statusBar.style.backgroundColor = "red";
-        localStorage.setItem("estadoPedido", "cerrado");
+        // Si ya está en localStorage, usamos ese valor
+        if (savedStatus === "abierto") {
+            statusBar.textContent = "ABIERTO";
+            statusBar.style.backgroundColor = "green";
+        } else {
+            statusBar.textContent = "CERRADO";
+            statusBar.style.backgroundColor = "red";
+        }
+    }
+
+    // Forzar la recarga de la página si el estado no está actualizado
+    if (localStorage.getItem("estadoPedido") !== savedStatus) {
+        localStorage.removeItem("estadoPedido");
+        location.reload();  // Esto recargará la página forzosamente
     }
 };
