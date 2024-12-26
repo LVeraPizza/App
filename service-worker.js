@@ -12,7 +12,7 @@ self.addEventListener('install', (event) => {
         'https://lverapizza.github.io/App/splash.js',
         'https://lverapizza.github.io/App/service-worker.js',
         'https://lverapizza.github.io/App/logo_vp.png',
-        'https://lverapizza.github.io/App/logo_navidad.png',
+        'https://lverapizza.github.io/App/img/eventos/logo_año_nuevo.png',
 
         // Agrega otros archivos que necesites en el caché
       ]);
